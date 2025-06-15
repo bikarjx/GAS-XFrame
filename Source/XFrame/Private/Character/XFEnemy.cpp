@@ -3,3 +3,12 @@
 
 #include "Character/XFEnemy.h"
 
+void AXFEnemy::HighlightActor()
+{
+	
+}
+
+void AXFEnemy::UnHighlightActor()
+{
+	
+}

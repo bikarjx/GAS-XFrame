@@ -13,5 +13,8 @@ UCLASS()
 class XFRAME_API AXFCharacter : public AXFCharacterBase
 {
 	GENERATED_BODY()
+
+public:
+	AXFCharacter();
 	
 };
