@@ -1,0 +1,17 @@
+// Copyrights, Bikarjx 2025. All Rights Reserved.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/PlayerController.h"
+#include "XFPlayerController.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class XFRAME_API AXFPlayerController : public APlayerController
+{
+	GENERATED_BODY()
+	
+};
