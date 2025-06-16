@@ -13,6 +13,8 @@ AXFEnemy::AXFEnemy()
 
 	AbilitySystemComponent = CreateDefaultSubobject<UXFAbilitySystemComponent>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
+
 
 	AttributeSet = CreateDefaultSubobject<UXFAttributeSet>("AttributeSet");
 }
@@ -31,4 +33,11 @@ void AXFEnemy::UnHighlightActor()
 	GetMesh()->SetRenderCustomDepth(false);
 	Weapon->SetRenderCustomDepth(false);
 	
+}
+
+void AXFEnemy::BeginPlay()
+{
+	Super::BeginPlay();
+
+	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 }

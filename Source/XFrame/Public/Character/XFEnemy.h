@@ -17,8 +17,12 @@ class XFRAME_API AXFEnemy : public AXFCharacterBase, public IEnemyInterface
 
 public:
 	AXFEnemy();
-	
+
+	//~ Enemy Interface ~//
 	virtual void HighlightActor() override;
 	virtual void UnHighlightActor() override;
-	
+	//~ End Enemy Interface ~//
+
+protected:
+	virtual void BeginPlay() override;
 };

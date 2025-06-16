@@ -17,4 +17,9 @@ class XFRAME_API AXFCharacter : public AXFCharacterBase
 public:
 	AXFCharacter();
 	
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void OnRep_PlayerState() override;
+
+private:
+	void InitAbilityActorInfo();
 };
