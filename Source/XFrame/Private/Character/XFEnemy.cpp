@@ -5,10 +5,10 @@
 
 void AXFEnemy::HighlightActor()
 {
-	
+	bHighlighted = true;
 }
 
 void AXFEnemy::UnHighlightActor()
 {
-	
+	bHighlighted = false;
 }
