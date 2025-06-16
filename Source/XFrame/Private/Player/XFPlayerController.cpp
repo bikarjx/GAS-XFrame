@@ -5,10 +5,59 @@
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Interaction/EnemyInterface.h"
 
 AXFPlayerController::AXFPlayerController()
 {
 	bReplicates = true;
+}
+
+void AXFPlayerController::PlayerTick(float DeltaTime)
+{
+	Super::PlayerTick(DeltaTime);
+
+	CursorTrace();
+}
+
+void AXFPlayerController::CursorTrace()
+{
+	FHitResult CursorHit;
+	GetHitResultUnderCursor(ECC_Visibility, false, CursorHit);
+	if (!CursorHit.bBlockingHit) return;
+
+	LastActor = ThisActor;
+	ThisActor = CursorHit.GetActor();
+
+	if (LastActor == nullptr)
+	{
+		if (ThisActor != nullptr)
+		{
+			ThisActor->HighlightActor();
+		}
+		else
+		{
+			// both are null, do nothing
+		}
+	}
+	else // last actor is valid
+	{
+		if (ThisActor == nullptr)
+		{
+			LastActor->UnHighlightActor();
+		}
+		else // both actor are valid
+		{
+			if (LastActor != ThisActor)
+			{
+				LastActor->UnHighlightActor();
+				ThisActor->HighlightActor();
+			}
+			else
+			{
+				// both are valid, do nothing
+			}
+		}
+	}
 }
 
 void AXFPlayerController::BeginPlay()
@@ -56,3 +105,5 @@ void AXFPlayerController::Move(const FInputActionValue& InputActionValue)
 	}
 	
 }
+
+

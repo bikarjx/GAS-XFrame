@@ -9,6 +9,7 @@
 struct FInputActionValue;
 class UInputMappingContext;
 class UInputAction;
+class IEnemyInterface;
 /**
  * 
  */
@@ -20,6 +21,7 @@ class XFRAME_API AXFPlayerController : public APlayerController
 public:
 
 	AXFPlayerController();
+	virtual void PlayerTick(float DeltaTime) override;
 
 protected:
 
@@ -36,5 +38,10 @@ private:
 	TObjectPtr<UInputAction> MoveAction;
 
 	void Move(const FInputActionValue& InputActionValue);
+
+	void CursorTrace();
+
+	TScriptInterface<IEnemyInterface> LastActor;
+	TScriptInterface<IEnemyInterface> ThisActor;
 	
 };
