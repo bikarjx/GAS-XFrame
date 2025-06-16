@@ -8,7 +8,10 @@
 
 UXFAttributeSet::UXFAttributeSet()
 {
-	
+	InitHealth(75.f);
+	InitMaxHealth(100.f);
+	InitMana(45.f);
+	InitMaxMana(60.f);
 }
 
 void UXFAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
