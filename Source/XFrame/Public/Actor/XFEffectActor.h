@@ -29,9 +29,9 @@ protected:
 
 private:
 
-	UPROPERTY(VisibleAnywhere, Category = "Effect")
+	UPROPERTY(VisibleAnywhere, Category = "XFrame Effect")
 	TObjectPtr<USphereComponent> Sphere;
 
-	UPROPERTY(VisibleAnywhere, Category = "Effect")
+	UPROPERTY(VisibleAnywhere, Category = "XFrame Effect")
 	TObjectPtr<UStaticMeshComponent> Mesh;
 };

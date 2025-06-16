@@ -23,7 +23,7 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, Category = "Combat")
+	UPROPERTY(EditAnywhere, Category = "XFrame Weapon")
 	TObjectPtr<USkeletalMeshComponent> Weapon;
 
 	UPROPERTY()
