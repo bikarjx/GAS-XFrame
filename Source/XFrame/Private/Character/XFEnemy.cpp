@@ -2,12 +2,19 @@
 
 
 #include "Character/XFEnemy.h"
+#include "AbilitySystem/XFAbilitySystemComponent.h"
+#include "AbilitySystem/XFAttributeSet.h"
 #include "XFrame/XFrame.h"
 
 
 AXFEnemy::AXFEnemy()
 {
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
+
+	AbilitySystemComponent = CreateDefaultSubobject<UXFAbilitySystemComponent>("AbilitySystemComponent");
+	AbilitySystemComponent->SetIsReplicated(true);
+
+	AttributeSet = CreateDefaultSubobject<UXFAttributeSet>("AttributeSet");
 }
 
 void AXFEnemy::HighlightActor()

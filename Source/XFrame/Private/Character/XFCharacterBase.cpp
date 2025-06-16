@@ -12,6 +12,12 @@ AXFCharacterBase::AXFCharacterBase()
 	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
+UAbilitySystemComponent* AXFCharacterBase::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
+
+
 void AXFCharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
