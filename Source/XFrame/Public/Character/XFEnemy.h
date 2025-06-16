@@ -16,9 +16,9 @@ class XFRAME_API AXFEnemy : public AXFCharacterBase, public IEnemyInterface
 	GENERATED_BODY()
 
 public:
+	AXFEnemy();
+	
 	virtual void HighlightActor() override;
 	virtual void UnHighlightActor() override;
-
-	UPROPERTY(BlueprintReadOnly)
-	bool bHighlighted = false;
+	
 };
