@@ -5,7 +5,9 @@
 
 #include "AbilitySystemComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Player/XFPlayerController.h"
 #include "Player/XFPlayerState.h"
+#include "UI/HUD/XFHUD.h"
 
 AXFCharacter::AXFCharacter()
 {
@@ -42,4 +44,13 @@ void AXFCharacter::InitAbilityActorInfo()
 	XFPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(XFPlayerState, this);
 	AbilitySystemComponent = XFPlayerState->GetAbilitySystemComponent();
 	AttributeSet = XFPlayerState->GetAttributeSet();
+
+	if (AXFPlayerController* XFPlayerController = Cast<AXFPlayerController>(GetController()))
+	{
+		if (AXFHUD* XFHUD = Cast<AXFHUD>(XFPlayerController->GetHUD()))
+		{
+			XFHUD->InitOverlay(XFPlayerController, XFPlayerState, AbilitySystemComponent, AttributeSet);
+		}
+	}
+	
 }

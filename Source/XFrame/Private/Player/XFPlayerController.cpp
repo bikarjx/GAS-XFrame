@@ -67,7 +67,10 @@ void AXFPlayerController::BeginPlay()
 	check(XFrameContext);
 	
 	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	check(Subsystem);
+	if (Subsystem)
+	{
+		Subsystem->AddMappingContext(XFrameContext,0);
+	}
 	Subsystem->AddMappingContext(XFrameContext, 0);
 
 	bShowMouseCursor = true;
