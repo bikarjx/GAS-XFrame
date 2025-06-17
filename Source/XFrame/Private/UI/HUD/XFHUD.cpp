@@ -13,7 +13,7 @@ UXFOverlayWidgetController* AXFHUD::GetXFOverlayWidgetController(const FWidgetCo
 	{
 		OverlayWidgetController = NewObject<UXFOverlayWidgetController>(this, OverlayWidgetControllerClass);
 		OverlayWidgetController->SetWidgetControllerParams(WCParams);
-
+		OverlayWidgetController->BindCallbacksToDependencies();
 		return OverlayWidgetController;
 	}
 	return OverlayWidgetController;
@@ -30,6 +30,7 @@ void AXFHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystem
 	UXFOverlayWidgetController* WidgetController = GetXFOverlayWidgetController(WidgetControllerParams);
 
 	OverlayWidget->SetWidgetController(WidgetController);
+	WidgetController->BroadcastInitialValues();
 	
 	Widget->AddToViewport();
 }

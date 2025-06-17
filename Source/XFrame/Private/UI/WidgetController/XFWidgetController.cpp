@@ -10,3 +10,13 @@ void UXFWidgetController::SetWidgetControllerParams(const FWidgetControllerParam
 	AbilitySystemComponent = WCParams.AbilitySystemComponent;
 	AttributeSet = WCParams.AttributeSet;
 }
+
+void UXFWidgetController::BroadcastInitialValues()
+{
+	
+}
+
+void UXFWidgetController::BindCallbacksToDependencies()
+{
+	
+}

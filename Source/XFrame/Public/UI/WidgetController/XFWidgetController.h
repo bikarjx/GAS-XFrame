@@ -43,6 +43,8 @@ class XFRAME_API UXFWidgetController : public UObject
 public:
 	UFUNCTION(BlueprintCallable, Category = "XFrame WidgetController")
 	void SetWidgetControllerParams(const FWidgetControllerParams& WCParams);
+	virtual void BroadcastInitialValues();
+	virtual void BindCallbacksToDependencies();
 
 protected:
 
