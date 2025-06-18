@@ -6,6 +6,9 @@
 #include "GameFramework/Actor.h"
 #include "XFEffectActor.generated.h"
 
+/**
+ * 
+ */
 class UGameplayEffect;
 UCLASS()
 class XFRAME_API AXFEffectActor : public AActor
@@ -21,8 +24,14 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "XFrame Applied Effect")
 	void ApplyEffectToTarget(AActor* TargetActor, TSubclassOf<UGameplayEffect> GameplayEffectClass);
 
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "XFrame Applied Effect")
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "XFrame Applied Effect type")
 	TSubclassOf<UGameplayEffect> InstantGameplayEffectClass;
 
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "XFrame Applied Effect type")
+	TSubclassOf<UGameplayEffect> DurationGameplayEffectClass;
+
+	//~ untested yet
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "XFrame Applied Effect type")
+	TSubclassOf<UGameplayEffect> InfiniteGameplayEffectClass;
 	
 };
