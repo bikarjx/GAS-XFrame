@@ -45,7 +45,7 @@ void AXFPlayerController::CursorTrace()
 		{
 			LastActor->UnHighlightActor();
 		}
-		else // both actor are valid
+		else // both actors isis valid
 		{
 			if (LastActor != ThisActor)
 			{
@@ -65,13 +65,11 @@ void AXFPlayerController::BeginPlay()
 	
 	Super::BeginPlay();
 	check(XFrameContext);
-	
-	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	if (Subsystem)
+
+	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
 		Subsystem->AddMappingContext(XFrameContext,0);
 	}
-	Subsystem->AddMappingContext(XFrameContext, 0);
 
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
